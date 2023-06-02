@@ -46,10 +46,11 @@ public class PlatformScript : MonoBehaviour
 
     private void OnCollisionExit(Collision other)
     {
-        _startTimer = other.gameObject.tag switch
+        switch (other.gameObject.tag)
         {
-            "Player" => true,
-            _ => _startTimer
-        };
+            case "Player":
+                _startTimer = true;
+                break;
+        }
     }
 }
